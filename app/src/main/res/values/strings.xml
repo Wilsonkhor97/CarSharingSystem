@@ -2,5 +2,10 @@
     <string name="app_name">Prototype(New)</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Profile</string>
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+    <string name="btn_reset_password">Reset password ?</string>
+    <string name="hint_email">Email</string>
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password.</string>
+    <string name="lbl_forgot_password">Forgot password?</string>
 </resources>

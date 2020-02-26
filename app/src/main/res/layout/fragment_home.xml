@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="177dp"
         android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/mylogo" />
+        app:srcCompat="@drawable/mylogo2" />
 
     <TextView
         android:id="@+id/textView"

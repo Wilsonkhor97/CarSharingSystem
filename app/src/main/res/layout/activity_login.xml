@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="177dp"
         android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/mylogo" />
+        app:srcCompat="@drawable/mylogo2" />
 
     <EditText
         android:id="@+id/email"
@@ -38,12 +38,6 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:text="Login"
         android:textColor="?attr/colorBackgroundFloating" />
-
-    <CheckBox
-        android:id="@+id/remember"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Remember Me" />
 
     <Button
         android:id="@+id/forgotPassword"

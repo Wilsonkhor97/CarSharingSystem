@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/username"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="What do you want to do?"
         android:textAllCaps="false"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:textStyle="italic" />
 
     <TextView
@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/changeName"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -42,7 +42,7 @@
 
     <Button
         android:id="@+id/changePassword"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -51,23 +51,16 @@
 
     <Button
         android:id="@+id/changePhoneNum"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="@android:drawable/editbox_background_normal"
         android:text="Change Phone Number" />
 
-    <!--<Button-->
-    <!--android:id="@+id/buyOrder"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@android:drawable/editbox_background_normal"-->
-    <!--android:text="Order of buy" />-->
-
     <Button
         android:id="@+id/logout"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_vertical|center_horizontal"

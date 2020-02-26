@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -20,27 +20,20 @@
             android:layout_weight="1"
             android:text="Back" />
 
-        <EditText
-            android:id="@+id/findCar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Please select a car."
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Search" />
     </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="16dp"-->
+<!--        android:id="@+id/text"/>-->
 
     <ListView
         android:id="@+id/car_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
+
+
 
 </LinearLayout>

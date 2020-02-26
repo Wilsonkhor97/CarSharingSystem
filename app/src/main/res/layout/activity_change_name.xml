@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="177dp"
         android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/mylogo" />
+        app:srcCompat="@drawable/mylogo2" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/changeName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"

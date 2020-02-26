@@ -18,13 +18,13 @@
             android:scaleType="fitCenter"
             android:layout_gravity="center"
             app:srcCompat="@drawable/camera" />
-        <!--        <Button-->
-        <!--            android:id="@+id/capture_image_btn"-->
-        <!--            android:text="Capture Image"-->
-        <!--            android:layout_marginTop="-5dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"/>-->
+<!--        <Button-->
+<!--            android:id="@+id/capture_image_btn"-->
+<!--            android:text="Capture Image"-->
+<!--            android:layout_marginTop="-5dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,14 +41,15 @@
                 android:textStyle="bold"
                 android:hint="Plate Number:" />
 
-            <TextView
+            <EditText
                 android:id="@+id/plateNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:textSize="20dp"
-                android:hint="PPP1234"
+                android:textStyle="italic"
+                android:hint="eg: PPP1234"
                 android:inputType="text" />
         </LinearLayout>
 
@@ -94,7 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Toyota Camry"
+                android:textStyle="italic"
+                android:hint="eg: Toyota Camry"
                 android:inputType="text"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -122,7 +124,8 @@
                 android:textSize="20dp"
                 android:focusableInTouchMode="false"
                 android:onClick="setDate"
-                android:hint="dd/mm/yyyy" />
+                android:textStyle="italic"
+                android:hint="eg: dd/mm/yyyy" />
         </LinearLayout>
 
         <LinearLayout
@@ -148,7 +151,8 @@
                 android:textSize="20dp"
                 android:focusableInTouchMode="false"
                 android:onClick="setDate1"
-                android:hint="dd/mm/yyyy" />
+                android:textStyle="italic"
+                android:hint="eg: dd/mm/yyyy" />
         </LinearLayout>
 
         <LinearLayout
@@ -174,7 +178,8 @@
                 android:textSize="20dp"
                 android:focusableInTouchMode="false"
                 android:onClick="setTime"
-                android:hint="10:00"
+                android:textStyle="italic"
+                android:hint="eg: 10:00"
                 android:inputType="text" />
         </LinearLayout>
 
@@ -201,7 +206,8 @@
                 android:textSize="20dp"
                 android:focusableInTouchMode="false"
                 android:onClick="setTime1"
-                android:hint="22:00"
+                android:textStyle="italic"
+                android:hint="eg: 22:00"
                 android:inputType="text" />
         </LinearLayout>
 
@@ -226,7 +232,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:textSize="20dp"
-                android:hint="50"
+                android:textStyle="italic"
+                android:hint="eg: 50"
                 android:inputType="number" />
 
         </LinearLayout>
@@ -251,7 +258,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:textSize="20dp"
-                android:hint="0123456789"
+                android:textStyle="italic"
+                android:hint="eg: 0123456789"
                 android:inputType="number" />
 
         </LinearLayout>
@@ -298,64 +306,24 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/edit"
+                android:id="@+id/publish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@color/blue"
-                android:text="Edit" />
-
-            <Button
-                android:id="@+id/Delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:background="@color/blue"
-                android:text="Delete" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/cusDetails"
-            android:text="Customer Details"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_marginTop="-5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@color/blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+                android:text="Publish" />
 
             <Button
                 android:id="@+id/Back"
-                android:text="Back"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_marginTop="-5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_weight="1"
                 android:background="@color/blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+                android:text="Back" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
