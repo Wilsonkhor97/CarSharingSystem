@@ -47,7 +47,7 @@ public class ChangePhoneNum extends AppCompatActivity {
                 if (!TextUtils.isEmpty(phoneNum) && phoneNum.length()>=10 && phoneNum.length()<=11){
                     ChangePhone(email,phoneNum);
                 }else{
-                    Toast.makeText(ChangePhoneNum.this, "Your phone number must not more than 12 digits!",
+                    Toast.makeText(ChangePhoneNum.this, "Your phone number must more than 10 and less than 12 digits!",
                             Toast.LENGTH_LONG).show();
                 }
             }

@@ -110,8 +110,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }else if(TextUtils.isEmpty(Name)){
                     Toast.makeText(getApplicationContext(), "Please enter your name!", Toast.LENGTH_SHORT).show();
                     return;
-                }else if(IcNo.length() <12){
-                    Toast.makeText(getApplicationContext(), "Your IC number must not more than 12 digits!", Toast.LENGTH_SHORT).show();
+                }else if(IcNo.length() !=12){
+                    Toast.makeText(getApplicationContext(), "Please enter your IC No correctly!", Toast.LENGTH_SHORT).show();
                     return;
                 }else if(Phone.length()!=10 && Phone.length()!=11){
                     Toast.makeText(getApplicationContext(), "Please enter your phone number correctly!", Toast.LENGTH_SHORT).show();
