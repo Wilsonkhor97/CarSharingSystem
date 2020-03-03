@@ -308,7 +308,7 @@ public class CarEdit extends AppCompatActivity implements AdapterView.OnItemSele
         locat = parent.getSelectedItem().toString();
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + locat, Toast.LENGTH_LONG).show();
+        Toast.makeText(parent.getContext(), "Selected: " + locat, Toast.LENGTH_SHORT).show();
     }
 
     @Override

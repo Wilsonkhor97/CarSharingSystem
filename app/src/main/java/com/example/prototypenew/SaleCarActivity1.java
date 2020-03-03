@@ -222,7 +222,7 @@ public class SaleCarActivity1 extends AppCompatActivity implements AdapterView.O
         locat = parent.getSelectedItem().toString();
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + locat, Toast.LENGTH_LONG).show();
+        Toast.makeText(parent.getContext(), "Selected: " + locat, Toast.LENGTH_SHORT).show();
     }
 
     @Override

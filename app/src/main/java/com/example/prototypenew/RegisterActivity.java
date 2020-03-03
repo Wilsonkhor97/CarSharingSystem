@@ -104,16 +104,16 @@ public class RegisterActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(Email)){
                     Toast.makeText(getApplicationContext(), "Please enter email address!", Toast.LENGTH_SHORT).show();
                     return;
+                }else if(Password.length() <6){
+                    Toast.makeText(getApplicationContext(), "Your password must more than 5 digits!", Toast.LENGTH_SHORT).show();
+                    return;
                 }else if(TextUtils.isEmpty(Name)){
                     Toast.makeText(getApplicationContext(), "Please enter your name!", Toast.LENGTH_SHORT).show();
                     return;
-                }else if(Password.length() <6){
-                    Toast.makeText(getApplicationContext(), "Please enter your password!", Toast.LENGTH_SHORT).show();
-                    return;
                 }else if(IcNo.length() <12){
-                    Toast.makeText(getApplicationContext(), "Please enter your IC number correctly!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Your IC number must not more than 12 digits!", Toast.LENGTH_SHORT).show();
                     return;
-                }else if(Phone.length() >11) {
+                }else if(Phone.length()!=10 && Phone.length()!=11){
                     Toast.makeText(getApplicationContext(), "Please enter your phone number correctly!", Toast.LENGTH_SHORT).show();
                     return;
                 }else if(bitmap == null){

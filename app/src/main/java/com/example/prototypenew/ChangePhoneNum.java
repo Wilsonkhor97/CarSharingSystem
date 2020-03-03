@@ -44,10 +44,10 @@ public class ChangePhoneNum extends AppCompatActivity {
             public void onClick(View v) {
                 String phoneNum=changePhone.getText().toString().trim();
 
-                if (!TextUtils.isEmpty(phoneNum) && phoneNum.length()<11){
+                if (!TextUtils.isEmpty(phoneNum) && phoneNum.length()>=10 && phoneNum.length()<=11){
                     ChangePhone(email,phoneNum);
                 }else{
-                    Toast.makeText(ChangePhoneNum.this, "Please Enter Your Phone Number Correctly!",
+                    Toast.makeText(ChangePhoneNum.this, "Your phone number must not more than 12 digits!",
                             Toast.LENGTH_LONG).show();
                 }
             }

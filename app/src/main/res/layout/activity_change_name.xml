@@ -14,15 +14,31 @@
         android:layout_marginTop="50dp"
         app:srcCompat="@drawable/mylogo2" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:text="Please enter your name. *"/>
+
     <EditText
         android:id="@+id/changeName"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
         android:background="@android:drawable/editbox_background_normal"
-        android:ems="10"
-        android:hint="Please enter your name."
+        android:ems="0"
+        android:textSize="18dp"
+        android:hint="Type your name."
         android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:text="* Required"/>
 
     <LinearLayout
         android:layout_width="match_parent"
