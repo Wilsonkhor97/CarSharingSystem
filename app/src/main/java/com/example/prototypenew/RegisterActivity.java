@@ -5,6 +5,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +44,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import pub.devrel.easypermissions.EasyPermissions;
+
+import static android.view.View.Z;
 
 public class RegisterActivity extends AppCompatActivity {
     Button reg,login,captureBTN;
@@ -101,8 +106,8 @@ public class RegisterActivity extends AppCompatActivity {
                 final String IcNo = icNo.getText().toString().trim();
                 final String Phone= phone.getText().toString().trim();
 
-                if (TextUtils.isEmpty(Email)){
-                    Toast.makeText(getApplicationContext(), "Please enter email address!", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(Email) || !Email.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
+                    Toast.makeText(getApplicationContext(), "Please enter a valid email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }else if(Password.length() <6){
                     Toast.makeText(getApplicationContext(), "Your password must more than 5 digits!", Toast.LENGTH_SHORT).show();
