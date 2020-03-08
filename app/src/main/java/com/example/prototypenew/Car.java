@@ -16,7 +16,16 @@ public class Car implements Serializable {
     String latitude;
     String longitude;
     String phoneNum;
+    String email1;
+
+
     public Car(){}
+    public void setEmail1(String email1) {
+        this.email1 = email1;
+    }
+    public String getEmail1() {
+        return email1;
+    }
 
     public String getUrl() {
         return url;

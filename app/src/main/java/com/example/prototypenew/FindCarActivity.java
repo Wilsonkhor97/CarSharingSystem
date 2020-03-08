@@ -53,7 +53,6 @@ public class FindCarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_car);
 
-
         sharedPreferencesB=FindCarActivity.this.getSharedPreferences("car_details", Context.MODE_PRIVATE);
         back=findViewById(R.id.back);
         carList=findViewById(R.id.car_list);
@@ -90,6 +89,9 @@ public class FindCarActivity extends AppCompatActivity {
     }
 
     private void retrieveJSON() {
+        SharedPreferences sharedPreferences = getSharedPreferences("wilson", Context.MODE_PRIVATE);
+        final String email = sharedPreferences.getString("user_email", "Not Available");
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://mobilehost2019.com/KhorHuanYong/php/find_car.php",
                 new Response.Listener<String>() {
                     @Override
@@ -121,7 +123,8 @@ public class FindCarActivity extends AppCompatActivity {
                                     playerModel.setLatitude(dataobj.getString("latitude"));
                                     playerModel.setLongitude(dataobj.getString("longitude"));
                                     playerModel.setPhoneNum(dataobj.getString("phoneNum"));
-
+                                    playerModel.setEmail(dataobj.getString("ownerEmail"));
+                                    playerModel.setEmail1(email);
                                     dataModelArrayList.add(playerModel);
 
                                 setupListview();

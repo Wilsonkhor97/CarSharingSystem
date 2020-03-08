@@ -1,6 +1,7 @@
 package com.example.prototypenew;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,16 +49,29 @@ public class ListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
+
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.car, null, true);
+            if (dataModelArrayList.get(position).getEmail().equals(dataModelArrayList.get(position).getEmail1())) {
 
-            holder.name = (TextView) convertView.findViewById(R.id.name);
-            holder.price = (TextView) convertView.findViewById(R.id.price);
+                convertView = inflater.inflate(R.layout.car1, null, true);
 
-            convertView.setTag(holder);
+                holder.name = (TextView) convertView.findViewById(R.id.name);
+
+                holder.price = (TextView) convertView.findViewById(R.id.price);
+
+                convertView.setTag(holder);
+            }else {
+                convertView = inflater.inflate(R.layout.car, null, true);
+
+                holder.name = (TextView) convertView.findViewById(R.id.name);
+
+                holder.price = (TextView) convertView.findViewById(R.id.price);
+
+                convertView.setTag(holder);
+            }
         }else {
             // the getTag returns the viewHolder object set as a tag to the view
             holder = (ViewHolder)convertView.getTag();
@@ -65,6 +79,9 @@ public class ListAdapter extends BaseAdapter {
 
         holder.name.setText(dataModelArrayList.get(position).getNameOfCar());
         holder.price.setText(dataModelArrayList.get(position).getPrice());
+
+//        holder.name.setText(dataModelArrayList.get(position).getEmail());
+//        holder.price.setText(dataModelArrayList.get(position).getEmail1());
 
         return convertView;
     }

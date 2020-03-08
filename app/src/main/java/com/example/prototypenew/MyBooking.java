@@ -79,6 +79,8 @@ public class MyBooking extends AppCompatActivity {
         });
     }
     private void retrieveJSON() {
+        SharedPreferences sharedPreferences = getSharedPreferences("wilson", Context.MODE_PRIVATE);
+        final String email = sharedPreferences.getString("user_email", "Not Available");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://mobilehost2019.com/KhorHuanYong/php/myBooking.php",
                 new Response.Listener<String>() {
                     @Override
@@ -110,7 +112,8 @@ public class MyBooking extends AppCompatActivity {
                                 playerModel.setLatitude(dataobj.getString("latitude"));
                                 playerModel.setLongitude(dataobj.getString("longitude"));
                                 playerModel.setPhoneNum(dataobj.getString("phoneNum"));
-
+                                playerModel.setEmail(dataobj.getString("ownerEmail"));
+                                playerModel.setEmail1(email);
                                 dataModelArrayList.add(playerModel);
 
                                 setupListview();
