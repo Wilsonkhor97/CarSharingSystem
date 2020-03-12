@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private boolean loggedIn = false;
     Button log,register,forgotPassword;
     EditText email,password;
-    String email1,password1;
+    String email1,password1,email2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putBoolean("loggedin", true);
                             editor.putString("user_email", email1);
                             editor.commit();
+                            loadData(email2);
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             startActivity(i);
@@ -164,5 +170,62 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    private void loadData(final String email2){
+        //Creating a string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://mobilehost2019.com/KhorHuanYong/php/getName.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Log.d("strrrrr", ">>" + response);
+
+                        try {
+
+
+                            JSONObject obj = new JSONObject(response);
+
+
+                            //Creating a shared preference
+                            SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences("wilson", Context.MODE_PRIVATE);
+
+                            //Creating editor to store values to shared preferences
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            //Adding values to editor
+                            editor.putString("user_name", obj.getString("username"));
+                            editor.commit();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //You can handle error here if you want
+                    }
+                }){
+
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                //Adding parameters to request
+                params.put("email", email1);
+
+                //returning parameter
+                return params;
+            }
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        //Adding the string request to the queue
+        RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+        requestQueue.add(stringRequest);
     }
 }

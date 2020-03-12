@@ -56,10 +56,14 @@ public class NotificationsFragment extends Fragment {
         changePassword=getActivity().findViewById(R.id.changePassword);
         changePhone=getActivity().findViewById(R.id.changePhoneNum);
         logout=getActivity().findViewById(R.id.logout);
+        name=getActivity().findViewById(R.id.username);
+
+
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("wilson", Context.MODE_PRIVATE);
-        final String email = sharedPreferences.getString("user_email", "Not Available");
-        loadData(email);
+        final String name1 = sharedPreferences.getString("user_name", "Not Available");
+
+        name.setText("Hello " + name1);
 
         changeName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,60 +104,5 @@ public class NotificationsFragment extends Fragment {
             }
         });
     }
-    private void loadData(final String email){
-        //Creating a string request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://mobilehost2019.com/KhorHuanYong/php/getName.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
 
-                        Log.d("strrrrr", ">>" + response);
-
-                        try {
-                            name=getActivity().findViewById(R.id.username);
-
-                            JSONObject obj = new JSONObject(response);
-                            name.setText("Hello " + obj.getString("username"));
-
-                            //Creating a shared preference
-                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("wilson", Context.MODE_PRIVATE);
-
-                            //Creating editor to store values to shared preferences
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                            //Adding values to editor
-                            editor.putString("user_name", obj.getString("username"));
-                            editor.commit();
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //You can handle error here if you want
-                    }
-                }){
-
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                //Adding parameters to request
-                params.put("email", email);
-
-                //returning parameter
-                return params;
-            }
-        };
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                30000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        //Adding the string request to the queue
-        RequestQueue requestQueue = Volley.newRequestQueue(this.getActivity());
-        requestQueue.add(stringRequest);
-    }
 }
